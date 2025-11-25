@@ -10,3 +10,4 @@ google-generativeai
 bcrypt
 email-validator
 argon2-cffi
+psycopg2-binary
