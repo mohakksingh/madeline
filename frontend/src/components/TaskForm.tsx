@@ -52,7 +52,6 @@ export default function TaskForm({ task, onSubmit, onCancel }: TaskFormProps) {
         taskId = response.data.id;
       }
 
-      // Handle subtasks
       if (taskId) {
         for (const st of subtasks) {
            if (!st.id) {

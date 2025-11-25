@@ -25,11 +25,6 @@ interface KanbanBoardProps {
 
 export default function KanbanBoard({ tasks, onTaskMove, onEdit, onDelete }: KanbanBoardProps) {
   const [activeId, setActiveId] = useState<number | null>(null);
-  // We need local state for optimistic updates if we want smooth dragging
-  // But if we rely on props, it might be jumpy if the parent update is slow.
-  // For now, let's rely on props and assume parent updates fast or we can implement local state later if needed.
-  // Actually, dnd-kit works best if we control the state.
-  // Let's derive columns from tasks.
 
   const sensors = useSensors(
     useSensor(PointerSensor),
@@ -64,11 +59,6 @@ export default function KanbanBoard({ tasks, onTaskMove, onEdit, onDelete }: Kan
     if (!overId || active.id === overId) {
       return;
     }
-
-    // This is mainly for visual sorting within columns, 
-    // but since we group by status in the parent/props, 
-    // we might not need complex reordering logic here unless we persist order.
-    // For now, we just care about moving between columns.
   };
 
   const handleDragEnd = (event: DragEndEvent) => {

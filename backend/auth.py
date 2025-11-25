@@ -7,7 +7,6 @@ from fastapi import Depends, HTTPException, status
 from sqlalchemy.orm import Session
 import schemas, models, database
 
-# SECRET_KEY should be in env variables for production
 SECRET_KEY = "your-secret-key-here"
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 30

@@ -47,13 +47,7 @@ def create_subtask(task_id: int, subtask: schemas.SubtaskCreate, db: Session = D
     return crud.create_subtask(db=db, subtask=subtask, task_id=task_id)
 
 @router.put("/subtasks/{subtask_id}", response_model=schemas.Subtask)
-def update_subtask(subtask_id: int, subtask: schemas.SubtaskCreate, db: Session = Depends(database.get_db), current_user: models.User = Depends(auth.get_current_user)):
-    # Ideally we should verify ownership here too, but for simplicity assuming subtask ID is enough or we'd need to join with Task
-    # Let's do a quick check if possible or just proceed.
-    # To be safe, we should fetch the subtask and check if its task belongs to current user.
-    # For now, let's assume valid access or implement a get_subtask in crud that checks owner.
-    # But crud.update_subtask doesn't check owner.
-    # Let's trust the ID for now to keep it simple as per plan, or add a check.
+def update_subtask(subtask_id: int, subtask: schemas.SubtaskUpdate, db: Session = Depends(database.get_db), current_user: models.User = Depends(auth.get_current_user)):
     return crud.update_subtask(db=db, subtask_id=subtask_id, subtask_update=subtask)
 
 @router.delete("/subtasks/{subtask_id}", response_model=schemas.Subtask)

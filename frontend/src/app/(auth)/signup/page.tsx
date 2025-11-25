@@ -16,7 +16,6 @@ export default function SignupPage() {
     setError('');
     try {
       await api.post('/auth/signup', { email, password });
-      // Auto login after signup
       const formData = new FormData();
       formData.append('username', email);
       formData.append('password', password);
