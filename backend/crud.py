@@ -54,11 +54,12 @@ def create_subtask(db: Session, subtask: schemas.SubtaskCreate, task_id: int):
     db.refresh(db_subtask)
     return db_subtask
 
-def update_subtask(db: Session, subtask_id: int, subtask_update: schemas.SubtaskCreate):
+def update_subtask(db: Session, subtask_id: int, subtask_update: schemas.SubtaskUpdate):
     db_subtask = db.query(models.Subtask).filter(models.Subtask.id == subtask_id).first()
     if db_subtask:
-        db_subtask.title = subtask_update.title
-        db_subtask.completed = subtask_update.completed
+        update_data = subtask_update.dict(exclude_unset=True)
+        for key, value in update_data.items():
+            setattr(db_subtask, key, value)
         db.commit()
         db.refresh(db_subtask)
     return db_subtask

@@ -7,7 +7,8 @@ from fastapi import Depends, HTTPException, status
 from sqlalchemy.orm import Session
 import schemas, models, database
 
-SECRET_KEY = "your-secret-key-here"
+import os
+SECRET_KEY = os.getenv("SECRET_KEY", "myhfosdjfjfejfoerj)
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 30
 

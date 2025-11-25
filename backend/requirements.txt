@@ -9,3 +9,4 @@ python-multipart
 google-generativeai
 bcrypt
 email-validator
+argon2-cffi
