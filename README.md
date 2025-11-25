@@ -16,7 +16,7 @@ TaskFlow is a modern, full-stack task management application designed to help yo
 
 ### Frontend
 - **Framework**: Next.js 16 (App Router)
-- **Styling**: TailwindCSS
+- **Styling**: TailwindCSS, Framer Motion
 - **Language**: TypeScript
 - **HTTP Client**: Axios
 
