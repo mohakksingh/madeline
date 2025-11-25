@@ -1,7 +1,7 @@
 'use client';
 
 import { ThemeToggle } from './ThemeToggle';
-import { Bell, Search } from 'lucide-react';
+import { Search } from 'lucide-react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useDebouncedCallback } from 'use-debounce';
 
@@ -35,10 +35,7 @@ export function Header() {
       </div>
 
       <div className="flex items-center space-x-4">
-        <button className="p-2 text-muted-foreground hover:text-foreground hover:bg-muted rounded-full transition-colors relative">
-          <Bell className="w-5 h-5" />
-          <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-red-500 rounded-full border-2 border-background"></span>
-        </button>
+
         <div className="h-6 w-px bg-border"></div>
         <ThemeToggle />
       </div>

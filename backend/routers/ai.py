@@ -40,7 +40,7 @@ def get_weekly_summary(db: Session = Depends(database.get_db), current_user: mod
     1. Do NOT use conversational fillers like "Okay, here is..." or "Sure!".
     2. Start directly with the summary content.
     3. Use bolding for key terms (e.g., **Workload Summary:**).
-    4. Keep the response under 150 words.
+    4. Keep the response under 150 words.w
     """
 
     try:
