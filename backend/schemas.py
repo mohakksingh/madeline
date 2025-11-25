@@ -46,6 +46,10 @@ class SubtaskBase(BaseModel):
 class SubtaskCreate(SubtaskBase):
     pass
 
+class SubtaskUpdate(SubtaskBase):
+    title: Optional[str] = None
+    completed: Optional[bool] = None
+
 class Subtask(SubtaskBase):
     id: int
     task_id: int
